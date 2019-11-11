@@ -58,7 +58,7 @@
 <meta property="og:site_name" content="Here I Come">
 <meta property="og:description" content="姓名： 杨璞喜欢：  质数，能天使，五月天，推理小说，配合Apple Pencil的iPad，新鲜电子产品，JK，陈奕迅的粤语歌，在墙上挂白板然后半年写一次，煎饼果子，比我已经会了的稍微难一丢丢的数学，高中物理，物理很好的JK，Python，图论算法，吉他拨片，双层吉士堡，圆周率，Minecraft，JetBrains全家桶，宅，说理清晰的文章，浪漫爱情故事的前半段，没有权力压迫和猥琐气质的黄段子">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-11-07T22:46:18.524Z">
+<meta property="og:updated_time" content="2019-11-11T05:54:22.464Z">
 <meta name="twitter:card" content="summary">
 
 <link rel="canonical" href="http://yoursite.com/about/">
@@ -160,6 +160,11 @@
     <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
 
   </li>
+        <li class="menu-item menu-item-guestbook">
+
+    <a href="/guestbook/" rel="section"><i class="fa fa-fw fa-comments"></i>留言板</a>
+
+  </li>
   </ul>
 
 </nav>
@@ -210,7 +215,7 @@
 </blockquote>
 <p><strong>讨厌：</strong></p>
 <blockquote>
-<p><font size=3>不好好说话的人，在傍晚时分变得特别卡的知乎，默认如此又没有明确规定的传统观念，自觉应该诚实却不得不撒谎的情境，逼人站队，因为东西太少所以与喜欢的列表非常不对称的讨厌列表</font></p>
+<p><font size=3>不好好说话的人，在傍晚时分变得特别卡的知乎，默认如此又没有明确规定的传统观念，自觉应该诚实却不得不撒谎的情境，逼人站队，带着恶意揣测的八卦，因为东西太少所以与喜欢的列表非常不对称的讨厌列表</font></p>
 </blockquote>
 
       </div>
@@ -358,6 +363,33 @@
   
 
   
+
+
+<script>
+NexT.utils.getScript('//cdn.jsdelivr.net/npm/valine@1/dist/Valine.min.js', () => {
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = 'nick,mail,link';
+  guest = guest.split(',').filter(item => {
+    return GUEST.includes(item);
+  });
+  new Valine({
+    el: '#comments',
+    verify: false,
+    notify: false,
+    appId: 'reNDV4BpVHOaP6TyKdWqr7Q0-MdYXbMMI',
+    appKey: 'PDrmNwAzUOWTiGI1sKOKEv08',
+    placeholder: "Just go go",
+    avatar: 'mm',
+    meta: guest,
+    pageSize: '10' || 10,
+    visitor: false,
+    lang: 'zh-cn' || 'zh-cn',
+    path: location.pathname,
+    recordIP: false,
+    serverURLs: ''
+  });
+}, window.Valine);
+</script>
 
 </body>
 </html>
