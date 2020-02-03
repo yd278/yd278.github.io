@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-02-01T08:41:26.722Z</updated>
+  <updated>2020-02-03T04:54:19.151Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>昨晚说完晚安之后我又干了什么</title>
+    <link href="http://yoursite.com/2020/02/03/%E6%98%A8%E6%99%9A%E8%AF%B4%E5%AE%8C%E6%99%9A%E5%AE%89%E4%B9%8B%E5%90%8E%E6%88%91%E5%8F%88%E5%B9%B2%E4%BA%86%E4%BB%80%E4%B9%88/"/>
+    <id>http://yoursite.com/2020/02/03/昨晚说完晚安之后我又干了什么/</id>
+    <published>2020-02-03T03:28:06.000Z</published>
+    <updated>2020-02-03T04:54:19.151Z</updated>
+    
+    <content type="html"><![CDATA[<p>　　0点45分，在和最后一个人道完晚安之后，因为看到票圈刷屏的20200202产生了恶作剧的念头，于是决定在随机的某一天也发一条「今天是公元纪年2020xxxx，这是人类历史上唯一一次，也是最后一次出现这个数字的一天，以前从没有过，以后也不会有」。<br>　　但是光是随机某一天还不够爽，决定找个素数，于是打开PowerShell，<code>python</code> ——出现了Python 2.6<br>　　我其实很少直接在命令行里写Python的，一般工作时不管是VSCode还是PyCharm还是Jupyter都自带环境，导致我写惯了Python 3。再加上似乎印象里有Python 2 已经停止维护的新闻，所以想着直接把这个2.6卸了。<br>　　不过刚才也提到了，我的PC里杂七杂八装了很多的Python环境，谁知道这个默认的2.6在哪里，于是:</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line">sys.executable</span><br></pre></td></tr></table></figure><p>　　找到了对应的Interpreter位置，又在文件夹里找到了uninstall.exe，第一步完成了。</p><p>　　接下来由于时间太晚意识模糊忘记了自己有Anaconda于是重新去官网下了个Python 3.8 按下不表……总之没什么区别就当没有这一步。进了PowerShell打<code>python</code>进入了Conda的base环境里的Python，问题来了：</p><blockquote><p>This Python interpreter is in a conda environment, but the environment has not been activated. Libraries may fail to load.</p></blockquote><p>　　（这也是个陈年老问题了，PowerShell里conda无法activate任何一个环境，之前试图activate非base的环境时候也不起效果）<br>　　因为在CMD里是可以正常activate的，而且测试了一下PowerShell不管activate哪个环境都会报这句警告。那么锁定在PowerShell的问题，google一查，解决方案也简单：在PowerShell里输入</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda init powershell</span><br></pre></td></tr></table></figure><p>重启即可。<br>　　比较新的conda version （我的是2019.3）应该都支持，是我当初安装时候漏了这一步。</p><p>　　但是这一切还没结束……因为在排查问题时候打开过了CMD，发现不管是CMD还是PowerShell那个字体和界面都实在太丑了……于是又从记忆中翻出了一篇Windows Terminal的新闻………………</p><p>　　当初看新闻的时候还只能自己下载源码自己build，当时也比较忙遂放弃。今天再看已经可以在windows应用商店下载了。美滋滋下了一个下来，发现这是一个UWP应用…</p><blockquote><p>插叙背景故事1： 因为觉得Ubuntu下那个Ctrl+Alt+T直接打开terminal很爽，所以我此前把这个快捷键跟PowerShell的快捷方式绑定了<br>插叙背景故事2： UWP app不像传统的windows 程序一样在安装目录下有个可执行文件……所以也找不到可以绑定快捷键的快捷方式</p></blockquote><p>　　如今我想把这个快捷方式改绑定到Windows Terminal上，继续感受快捷键开终端的快乐，于是我又开始了漫长的Google……<br>　　这个解决方案不一定泛用，因为不知道别的UWP app有没有，但是Windows Terminal 确实还是能找到一个叫wt.exe 的可执行文件的（而且大小居然为0kb）。用Everything搜了一下，就在<code>C:\Users\[User-name]\AppData\Local\Microsoft\WindowsApps\</code>下，对这个exe生成一个快捷方式，把启动位置改成<code>%USERPROFILE%</code>，随便藏到一个什么地方，然后再绑定一下快捷键即可。</p><p>　　最后的问题是，我想在右键菜单里加入「在此处打开Windows Terminal」的功能。加入右键菜单很简单，写一个注册表项就行：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Windows Registry Editor Version 5.00</span><br><span class="line"></span><br><span class="line">[HKEY_CLASSES_ROOT\Directory\Background\shell\wt]</span><br><span class="line">@=&quot;Windows terminal here&quot;</span><br><span class="line"></span><br><span class="line">[HKEY_CLASSES_ROOT\Directory\Background\shell\wt\command]</span><br><span class="line">@=&quot;C:\\Users\\[User-name]\\AppData\\Local\\Microsoft\\WindowsApps\\wt.exe&quot;</span><br></pre></td></tr></table></figure><p>　　但是加入右键菜单后wt的起始位置依然是<code>%USERPROFILE%</code>，需要在wt的设置里，也就是<code>profile.json</code> 中<code>profiles</code>里的每一个terminal都加上一句</p><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">"startingDirectory": "."</span><br></pre></td></tr></table></figure><p>即可。这也就是为什么之前设快捷方式的时候要把起始位置给固定下来。</p><p>　　折腾完这一切之后已经三点了，终于可以心满意足去睡觉了……是不是忘记了什么？<br>　　是的呢，今天早上我才知道，最近的一个素数日子是20200223，希望那一天大家还记得21天前你们是怎么刷屏的。<br>　　写下这一切，倒也不是说有多少技术技巧想分享，只是发现这都是很繁琐需要花很长时间去google的细枝末节。<br>　　一台自己用起来很爽很熟悉的电脑就是用这些细节堆砌起来的，所以稍微的记录一下，免得未来某天换新机了又要重新搜索一遍。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;　　0点45分，在和最后一个人道完晚安之后，因为看到票圈刷屏的20200202产生了恶作剧的念头，于是决定在随机的某一天也发一条「今天是公元纪年2020xxxx，这是人类历史上唯一一次，也是最后一次出现这个数字的一天，以前从没有过，以后也不会有」。&lt;br&gt;　　但是光是随机某
+      
+    
+    </summary>
+    
+    
+    
+  </entry>
   
   <entry>
     <title>想喝阔落</title>
