@@ -59,7 +59,7 @@
 <meta property="og:description" content="如何优雅地水一篇博文     玩舟的朋友都知道，刷材料的时候规划器可以帮你节约大量一丢丢的理智。目前网络上的刷图规划器用的全部都是ycremar的ArkPlanner，但是有不同的前端。 其中，一只灰猫的明日方舟工具箱整合了大部分的辅助功能，在计算材料需求方面体验非常好，输入库存和自动过滤功能也足够舒适，但是致命的问题是，不知道是网络通信的问题还是什么，它的规划器经常出现不给结果的情况……能不">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;1209&#x2F;1.png">
-<meta property="og:updated_time" content="2019-12-09T03:01:07.341Z">
+<meta property="og:updated_time" content="2020-02-09T16:11:45.172Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;1209&#x2F;1.png">
 
@@ -219,10 +219,16 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2019-12-09 10:00:44 / 修改时间：11:01:07" itemprop="dateCreated datePublished" datetime="2019-12-09T10:00:44+08:00">2019-12-09</time>
+              <time title="创建时间：2019-12-09 10:00:44" itemprop="dateCreated datePublished" datetime="2019-12-09T10:00:44+08:00">2019-12-09</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-02-10 00:11:45" itemprop="dateModified" datetime="2020-02-10T00:11:45+08:00">2020-02-10</time>
+              </span>
 
           
   
@@ -256,6 +262,7 @@
 
 <p>玩舟的朋友都知道，刷材料的时候规划器可以帮你节约<del>大量</del>一丢丢的理智。目前网络上的刷图规划器用的全部都是<a href="https://github.com/ycremar/ArkPlanner" target="_blank" rel="noopener">ycremar的ArkPlanner</a>，但是有不同的前端。</p>
 <p>其中，<a href="https://aktools.graueneko.xyz/" target="_blank" rel="noopener">一只灰猫的明日方舟工具箱</a>整合了大部分的辅助功能，在计算材料需求方面体验非常好，输入库存和自动过滤功能也足够舒适，但是致命的问题是，不知道是网络通信的问题还是什么，它的规划器经常出现不给结果的情况……能不能用全看玄学。</p>
+<a id="more"></a>
 <p><a href="https://planner.penguin-stats.io/" target="_blank" rel="noopener">企鹅物流数据统计 X ArkPlanner</a>就没有这个问题，点完规划秒出结果。前端看起来似乎也比方舟工具箱要好看一点。只不过它没有自动计算需求的功能，所以需求得自己输入；没有过滤功能，所以输入库存的时候会把无关的材料也输进去；更神奇的是，这个网页上的材料顺序和游戏里的是不一致的，所以你需要滚来滚去地输入（……）总之就是体验极差。让人宁可手写JSON然后导入也不愿意在那个网页上输数字——至少JSON可以搞一个顺序正确的模版然后一路顺下来把库存一个个填上去。</p>
 <p>好在就在几天前，方舟工具箱终于实现了JSON格式的导入/导出功能。虽然两个前端的格式并不兼容，但是毕竟都是JSON嘛……</p>
 <p>那么整个工作流程就很明确了，在方舟工具箱里优雅地输入需求和功能，导出成JSON，随便搞个自动化转一转格式，再导入进企鹅物流里，最后点击计算规划。打完收工。</p>
