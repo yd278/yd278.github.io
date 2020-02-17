@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
 <meta name="generator" content="Hexo 4.0.0">
@@ -104,12 +104,12 @@
   .use-motion .logo-line-before i { left: initial; }
   .use-motion .logo-line-after i { right: initial; }
   </style>
-</noscript>
+</noscript><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
-  <div class="container use-motion">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container use-motion">
     <div class="headband"></div>
 
     <header class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -248,9 +248,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>　　0点45分，在道完晚安之后，因为看到票圈刷屏的20200202产生了恶作剧的念头，于是决定在随机的某一天也发一条「今天是公元纪年2020xxxx，这是人类历史上唯一的一天，以前从没有过，以后也再不会回来」。<br>　　但是光是随机某一天还不够爽，决定找个素数，于是打开PowerShell，打<code>python</code>，回车 ——出现了Python 2.6<br>　　我其实很少直接在命令行里写Python的，一般工作时不管是VSCode还是PyCharm还是Jupyter都自带环境，导致我日常写惯了Python 3。再加上似乎印象里有Python 2 已经停止维护的新闻，所以想着直接把这个2.6卸了。</p>
-<a id="more"></a>
-<p>　　不过刚才也提到了，我的PC里杂七杂八装了很多的Python环境，谁知道这个默认的2.6在哪里，于是今天的第一个知识点出现了:</p>
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>　　0点45分，在道完晚安之后，因为看到票圈刷屏的20200202产生了恶作剧的念头，于是决定在随机的某一天也发一条「今天是公元纪年2020xxxx，这是人类历史上唯一的一天，以前从没有过，以后也再不会回来」。<br>　　但是光是随机某一天还不够爽，决定找个素数，于是打开PowerShell，打<code>python</code>，回车 ——出现了Python 2.6<br>　　我其实很少直接在命令行里写Python的，一般工作时不管是VSCode还是PyCharm还是Jupyter都自带环境，导致我日常写惯了Python 3。再加上似乎印象里有Python 2 已经停止维护的新闻，所以想着直接把这个2.6卸了。<br><a id="more"></a><br>　　不过刚才也提到了，我的PC里杂七杂八装了很多的Python环境，谁知道这个默认的2.6在哪里，于是今天的第一个知识点出现了:</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line">sys.executable</span><br></pre></td></tr></table></figure>
 <p>　　找到了对应的Interpreter位置，又在文件夹里找到了uninstall.exe，第一步完成了。</p>
 <p>　　接下来由于时间太晚意识模糊忘记了自己有Anaconda于是重新去官网下了个Python 3.8 按下不表……总之就当没有这一步也没什么区别。再次进PowerShell打<code>python</code>进入了Conda的base环境里的Python，问题来了：</p>
@@ -269,12 +267,8 @@
 <p>插叙背景故事1： 因为觉得Ubuntu下那个Ctrl+Alt+T直接打开terminal很爽，所以我此前把这个快捷键跟PowerShell的快捷方式绑定了<br>插叙背景故事2： UWP app不像传统的windows 程序一样在安装目录下有个可执行文件……所以也找不到可以绑定快捷键的快捷方式</p>
 </blockquote>
 <p>　　如今我想把这个快捷方式改绑定到Windows Terminal上，继续感受快捷键开终端的快乐，于是我又开始了漫长的Google……<br>　　这个知识点不一定泛用，因为不知道别的UWP app有没有，但是Windows Terminal 确实还是能找到一个叫wt.exe 的可执行文件的（而且大小居然为0kb）。用Everything搜了一下，就在<code>C:\Users\[User-name]\AppData\Local\Microsoft\WindowsApps\</code>下，对这个exe生成一个快捷方式，把启动位置改成<code>%USERPROFILE%</code>，随便藏到一个什么地方，然后再绑定一下快捷键即可。</p>
-<p>　　最后的问题是，我想在右键菜单里加入「在此处打开Windows Terminal」的功能。加入右键菜单很简单，写一个注册表项就行：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Windows Registry Editor Version 5.00</span><br><span class="line"></span><br><span class="line">[HKEY_CLASSES_ROOT\Directory\Background\shell\wt]</span><br><span class="line">@=&quot;Windows terminal here&quot;</span><br><span class="line"></span><br><span class="line">[HKEY_CLASSES_ROOT\Directory\Background\shell\wt\command]</span><br><span class="line">@=&quot;C:\\Users\\[User-name]\\AppData\\Local\\Microsoft\\WindowsApps\\wt.exe&quot;</span><br></pre></td></tr></table></figure>
-
-<p>　　但是加入右键菜单后wt的起始位置依然是<code>%USERPROFILE%</code>，需要在wt的设置里，也就是<code>profile.json</code> 中<code>profiles</code>里的每一个terminal都加上一句</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">"startingDirectory": "."</span><br></pre></td></tr></table></figure>
-<p>即可。这也就是为什么之前设快捷方式的时候要把起始位置给固定下来。</p>
+<p>　　最后的问题是，我想在右键菜单里加入「在此处打开Windows Terminal」的功能。加入右键菜单很简单，写一个注册表项就行：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Windows Registry Editor Version 5.00</span><br><span class="line"></span><br><span class="line">[HKEY_CLASSES_ROOT\Directory\Background\shell\wt]</span><br><span class="line">@=&quot;Windows terminal here&quot;</span><br><span class="line"></span><br><span class="line">[HKEY_CLASSES_ROOT\Directory\Background\shell\wt\command]</span><br><span class="line">@=&quot;C:\\Users\\[User-name]\\AppData\\Local\\Microsoft\\WindowsApps\\wt.exe&quot;</span><br></pre></td></tr></table></figure></p>
+<p>　　但是加入右键菜单后wt的起始位置依然是<code>%USERPROFILE%</code>，需要在wt的设置里，也就是<code>profile.json</code> 中<code>profiles</code>里的每一个terminal都加上一句<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">"startingDirectory": "."</span><br></pre></td></tr></table></figure><br>即可。这也就是为什么之前设快捷方式的时候要把起始位置给固定下来。</p>
 <p>　　折腾完这一切之后已经三点半了，看着精(hua)致(li)美(hu)观(shao)的WT界面终于可以心满意足去睡觉了……总觉得好像忘记了什么的样子？</p>
 <p>　　//记下了这么多知识点倒也不是说有多少技巧想分享，只是在折腾的过程中发现这些步骤都是现学吧太花时间，记下来吧又太琐碎不成系统。<br>　　//但是一台自己用起来很爽很熟悉的电脑就是靠这些细节堆砌起来的，总之就先记在这里，省的未来哪天买了新电脑还要再折腾一遍。</p>
 <hr>
@@ -357,7 +351,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">12</span>
+          <span class="site-state-item-count">13</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -449,6 +443,8 @@
 
   
 
+  
+
 
 <script>
 NexT.utils.getScript('//cdn.jsdelivr.net/npm/valine@1/dist/Valine.min.js', () => {
@@ -474,7 +470,7 @@ NexT.utils.getScript('//cdn.jsdelivr.net/npm/valine@1/dist/Valine.min.js', () =>
     serverURLs: ''
   });
 }, window.Valine);
-</script>
+</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 </body>
 </html>
