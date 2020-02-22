@@ -348,53 +348,17 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>　　这是我在知乎上对<a href="https://www.zhihu.com/question/373468198/answer/1032005529" target="_blank" rel="noopener">这个问题</a>的回答，因为辣鸡知乎吃我排版，再加上打开Markdown编辑器时候本来就在博客文件夹里，所以干脆就搬过来了。<br>　　这个答案会很长，我会尽量把对背景知识的需求压缩到高中数学和物理的大纲之内，相应的，也会牺牲一些严谨性和正确性。所以在看完这篇科普之后，万万不可对其中用到的一些比喻进行想当然地扩展与推广，会出大事的（指变成民科）。<br>　　//写完才发现尽管是一些很基础的线性代数但是还是不在高中数学范畴之中……emmmm没关系直接把结论记下来就好。</p>
+          <p>　　这是我在知乎上对<a href="https://www.zhihu.com/question/373468198/answer/1032005529" target="_blank" rel="noopener">这个问题</a>的回答，因为辣鸡知乎吃我排版，再加上打开Markdown编辑器时候本来就在博客文件夹里，所以干脆就搬过来了。<br>　　这个答案会很长，我会尽量把对背景知识的需求压缩到高中数学和物理的大纲之内，相应的，也会牺牲一些严谨性和正确性。所以在看完这篇科普之后，万万不可对其中用到的一些比喻进行想当然地扩展与推广，会出大事的（指变成民科）。<br>　　//写完才发现尽管是一些很基础的线性代数但是还是不在高中数学范畴之中……emmmm没关系直接把结论记下来就好。</p>
 <h2 id="比特与量子比特"><a href="#比特与量子比特" class="headerlink" title="比特与量子比特"></a>比特与量子比特</h2><p>　　在经典计算机中，一个机器的「状态」的最小单位是比特（bit），可以是0/1，是VCC/GND，是带磁/消磁，总之是一种确定的，非此即彼的状态，是1就不能再是0，是VCC就不能是GND。</p>
-<p>　　而在量子计算机中我们常听说，一个量子比特（Qubit）可以是1和0的叠加。常识与直觉会让我们以为这种叠加就是0.3, 0.5, 0.8 那样在数轴上从0和1中间选一个点。但事实上不是。在量子比特中，0和1不再是数轴上的两个点，他们实际上是两根<strong>互相垂直</strong>的数轴。为了避免混淆，我们引入新的符号$\mathinner{|0\rangle}$和$\mathinner{|1\rangle}$来描述它们。你可以把$\mathinner{|\cdot\rangle}$理解成一种向量的标志，就像高中时用$\vec{a}$来表示一个「名字叫做a的」向量一样。$\mathinner{|0\rangle}$和$\mathinner{|1\rangle}$分别是名字叫做”0”的向量和名字叫做”1”的向量。</p>
-<p>　　有了这个背景知识之后再去理解「叠加」就比较容易了。比如说一个Qubit $\mathinner{|Q\rangle}=0.6\mathinner{|0\rangle}+0.8\mathinner{|1\rangle}$,那么它就是这样子的一个向量：</p>
-<p>【放一张图在这里】</p>
-<p>好，到现在，最重要但是又反直觉的「叠加」就解释完了，接下来我们再来补充一些设定，按重要程度排序，越往后的越不用仔细理解（指一时半会也不能科普地讲清楚），看个热闹就行。</p>
-<ul>
-<li>一个量子比特的模长必须是1。也就是说，$\mathinner{|0\rangle}$和$\mathinner{|1\rangle}$前面的系数的「平方和」得是1。</li>
-<li>而系数的平方其实就是当我「观测」这个量子比特时候，会坍缩到$\mathinner{|0\rangle}$或者$\mathinner{|1\rangle}$的概率，也就是说前面提到的那个Qubit$\mathinner{|Q\rangle}$，在观测后会有36%的概率坍缩到$\mathinner{|0\rangle}$，有64%的概率坍缩到$\mathinner{|1\rangle}$</li>
-<li>实际上前面的系数并不局限于实数，而可以是复数的……所以你注意到我把上面的「平方和」打了引号。</li>
-<li>再实际上这作为系数的这几个复数具体是什么值其实不重要，重要的是它们之间的相对相位差。也就是说$a\mathinner{|0\rangle}+b\mathinner{|1\rangle}$和 $ai\mathinner{|0\rangle}+bi\mathinner{|1\rangle}$其实是同一个量子态。</li>
-<li>因为量子态可以看做是向量，那么从一个量子态变换到另一个量子态的操作就可以看作是矩阵。为了维护变换前后的模长都是1，这些矩阵必须是幺正矩阵(Unitary Matrix)。</li>
-<li>两个量子态可以写到一起，比如说$\mathinner{|1\rangle}$和$\mathinner{|0\rangle}$可以写作$\mathinner{|10\rangle}$，也就是之前两个向量的张量积。</li>
-</ul>
-<h2 id="计算与量子计算"><a href="#计算与量子计算" class="headerlink" title="计算与量子计算"></a>计算与量子计算</h2><p>　　经典计算是怎么做到的呢？用一句话来概括，就是搞一个机器，根据输入的不同状态(bits)，把自己变成，或者说输出按照预设的规则相对应的状态(bits)。<br>　　打个比方，比如说有一个机器，输入5和8，输出13；输入13和21，输出34，那我们就知道这是一个加法器了。加法器其实是一系列「门电路」的组合，而门电路就是最简单的，输入一个或两个bits，输出一个bit的机器。<br>　　同样的，量子计算也有自己的「门电路」，比如说量子AND门，就是可以输入$\mathinner{|0\rangle}$和$\mathinner{|1\rangle}$,然后输出一个$\mathinner{|0\rangle}$的机器……且慢，这里有些地方不太对，不过暂时可以这么理解着。<br>　　第一个不太对的地方是，我们上一节里提到过，对量子态的操作必须由要由幺正矩阵来进行，而熟悉线性代数的读者都知道，幺正变换是可逆的。AND门显然不可逆，光知道答案是$\mathinner{|0\rangle}$是判断不出输入的到底是$\mathinner{|01\rangle}$还是$\mathinner{|10\rangle}$还是$\mathinner{|00\rangle}$的。所以光靠幺正变换没办法得到一个单纯的AND门<br>　　第二个不太对的地方是……如果输入的不是纯的$\mathinner{|1\rangle}$或者$\mathinner{|0\rangle}$，而是它们的某种叠加怎么办？</p>
-<p>　　对于第一个问题，我们的解决办法是：再最后再补一位Qubit，变成3个Qubit的输入，3个Qubit的输出。也就是说，如果要算1 AND 0，我们不仅要输入一个$\mathinner{|1\rangle}$和一个$\mathinner{|0\rangle}$，还要补上一位，比如说这里补一个$\mathinner{|0\rangle}$，让整个输入变成$\mathinner{|100\rangle}$。而在输出的地方，前两位保持输入不变，在第三位输出计算结果与补入的那一位的异或值(XOR)。也就是说，输入$\mathinner{|100\rangle}$，输出就变成$\mathinner{|101\rangle}$。为什么？因为1 AND 0 = 0，而0 XOR 0 = 1，所以最后一位变成了1。</p>
-<p>　　而对于第二个问题，不妨把一个量子门当成一个变换矩阵$\mathinner{A}$，那么$A\mathinner{|100\rangle}=\mathinner{|101\rangle}$，而$A\mathinner{|111\rangle}=\mathinner{|110\rangle}$（因为1 AND 1 = 1，而 1 XOR 1 = 0）。好，如果现在的输入是某个叠加态，比如说 $\alpha\mathinner{|100\rangle}+\beta\mathinner{|110\rangle}$，那么结果会是什么呢？</p>
-<p>　　既然叠加和矩阵运算都是线性的，结果当然也是线性的，所以$A(\alpha\mathinner{|100\rangle}+\beta\mathinner{|110\rangle})=\alpha\mathinner{|101\rangle}+\beta\mathinner{|110\rangle}$，发现了吗，这个机器同时进行了两个运算！</p>
-<h2 id="有了这些之后量子计算机能干啥"><a href="#有了这些之后量子计算机能干啥" class="headerlink" title="有了这些之后量子计算机能干啥"></a>有了这些之后量子计算机能干啥</h2><p>　　一个量子门能同时进行两个计算当然也能同时进行更多个，对于一个量子AND门来讲，他能同时把四种所有可能性（11、10、01、00）都算出来，但是这有什么用呢，输出的结果里面，四个答案都混在一起，分不出谁是谁啊？</p>
-<p>　　那么，量子计算到底在哪个方面比经典计算机有优势呢？<br>　　<strong>以下大量数学预警</strong>，趁现在去泡杯茶，然后开窗通风，深呼吸三次，再回来坐稳扶好——</p>
-<p>　　考虑一个一般的问题，比如，判断$a\times b$是否等于$1643$(你猜我为什么选择这个数），这是一个经典计算机非常好解决的问题，稍有编程基础的同学都可以在非常低的时间复杂度内给出答案。</p>
-<p>　　那么，在这个问题中，一台经典计算机表现得像什么东西呢？比方说，我们用32个bits的二进制数来表示$a$，（32-bit二进制数表示整数是计算机中非常常见的一种表达），再用32个bits来表示$b$，那么此时整台经典计算机就表现得像一个输入64个bits的函数 $f(b_1,b_2,b_3 \dots )$ ，而这个函数的输出是一个bit，0代表不等于，1代表等于。</p>
-<p>　　在经典计算机中，这样的函数是可以用一系列门电路的组合来实现的，而每一个经典门电路都有相对应的量子门电路，也就是说我们可以实现一个量子门电路组成的量子变换$U_f$,使得：</p>
-<script type="math/tex; mode=display">U_f\mathinner{|b_1b_2b_3...b_{64}b_{65}\rangle}=\mathinner{|b_1b_2b_3...b_{64}(f(b_1,b_2...b_{64}) \text{ xor } b_{65})\rangle}</script><p>　　总之就是，在输入的64位后面补一个$b<em>{65}$，在输出的地方保持前64位不变，最后一位变成f函数的输出值与$b</em>{65}$的异或。</p>
-<p>　　到这一步，我们终于证明了，用经典计算机可以算出来的问题，用量子计算机可以——至少在复杂度上可以——和经典计算机算得一样快……不给力啊老湿。</p>
-<p>　　但是，我们有一个$U_f$了，让我们看得再仔细一些，看看$U_f$到底能做些什么，比如说，我们假设前64位全部都缩写成$\mathinner{|x\rangle}$，然后最后一位输入$\frac{1}{\sqrt{2}}(\mathinner{|0\rangle}-\mathinner{|1\rangle})$，会怎么样？</p>
-<p>　　//方便起见接下来的推导当中我就不写可以提取出来的公系数了（也就是那个$\frac{1}{\sqrt{2}}$），同学们读的时候记住每个量子态都把几个分量同时除以某个数让它的模长等于1就行<br>　　//但是我相信你们肯定会直接跳过的，哼<br>　　假设$\mathinner{|x\rangle}$是个没有叠加的纯态，那么$f(x)$唯一确定。</p>
-<script type="math/tex; mode=display">U_f[\mathinner{|x\rangle}\otimes (\mathinner{|0\rangle}-\mathinner{|1\rangle})]=U_f\mathinner{|x,0\rangle}-U_f\mathinner{|x,1\rangle}</script><script type="math/tex; mode=display">= \mathinner{|x,f(x)\rangle}-\mathinner{|x,\neg f(x)\rangle}</script><script type="math/tex; mode=display">=  \mathinner{|x\rangle} \otimes  (\mathinner{|f(x)\rangle}- \mathinner{|\neg f(x)\rangle})</script><p>　　那么，分情况讨论，如果$f(x)=0$，则应用U_f进行变换之后的结果等于：</p>
-<script type="math/tex; mode=display">\mathinner{|x\rangle} \otimes  (\mathinner{|0\rangle}- \mathinner{|1\rangle})</script><p>　　恰好跟输入一毛一样，而如果$f(x)=1$,那么最后的结果就会等于：</p>
-<script type="math/tex; mode=display">\mathinner{|x\rangle} \otimes  (\mathinner{|1\rangle}- \mathinner{|0\rangle})</script><p>　　但是我们又知道，对于一个量子态，它的系数是什么不重要，系数的相对相位差才重要，也就是说我们可以在$\mathinner{|x\rangle}$的每一个分量和$(\mathinner{|1\rangle}- \mathinner{|0\rangle})$前面都乘以一个$-1$，得到</p>
-<script type="math/tex; mode=display">(-\mathinner{|x\rangle}) \otimes  (\mathinner{|0\rangle}- \mathinner{|1\rangle})</script><p>　　对于一个叠加态来讲，因为纯态之间都是互相垂直的，所以可以简单的正交分解成不同的纯态再加回来</p>
-<p>　　<strong>//好了刚才跳过的同学们，这里是你们的空降点</strong></p>
-<p>　　也就是说，我们发现在最后一位输入$\frac{1}{\sqrt{2}}(\mathinner{|0\rangle}-\mathinner{|1\rangle})$之后，经过$U_f$的神奇操作，这个作为补位的最后一个Qubit保持不变，但是前面的那个$\mathinner{|x\rangle}$，会在$f(x)=1$的时候，神奇的变成$-\mathinner{|x\rangle}$。那我要是把所有的纯态的可能，也就是从64个0到64个1这$2^{64}$种纯态，全部都均匀地叠加在一起输入$U_f$机器，会怎样？</p>
-<p>　　接下来的事情需要一些空间想象力，考虑到所有的可能性都叠加在一起之后的量子态依然是一个向量，我们就叫他$\mathinner{|\psi\rangle}$吧，它不沿着任意一个坐标轴，而是均匀地与任意一个坐标轴保持着距离。<br>　　我们再考虑，所有能让$f(x)=1$的可能的纯态叠加在一起，应该也是一个向量，而且会在这个空间中指出一个确定的方向。我们就叫它$\mathinner{|a\rangle}$好了。<br>　　现在，$\mathinner{|\psi\rangle}$和$\mathinner{|a\rangle}$两个向量在空间中张开了一个角度，它们确定了一个平面。在这个平面上，我们找到与$\mathinner{|a\rangle}$垂直的那个方向，叫它$\mathinner{|\bar{a}\rangle}$，然后把$\mathinner{|\psi\rangle}$沿着这两个方向正交分解……<br>　　我们现在拥有$\mathinner{|\psi\rangle}$的两个分量了，沿$\mathinner{|a\rangle}$方向的分量在应用一次$U_f$后会被反向，而沿$\mathinner{|\bar{a}\rangle}$方向的分量则保持不变。这意味着，<strong>每次进行$U_f$操作后，我们的$\mathinner{|\psi\rangle}$都会对称于$\mathinner{|\bar{a}\rangle}$方向翻转。</strong></p>
-<p>　　有了这个结论之后，我们已经有量子搜索的全貌的一半了。接下来我们要<strong>构造另一个矩阵$W$，它所对应的变化是，让一个向量对称于「所有纯态的叠加」$\mathinner{|\Psi\rangle}$翻转</strong>。<br>　　注意这次的$\Psi$是大写的，因为这次不是那个翻来翻去的向量，而是对称轴本身了。<br>　　这个矩阵如何构造，留给读者证明（逃）<br>　　//哎呀反正你只要知道这个矩阵是构造得出来的不就行了嘛！</p>
-<p>　　最后一点点微小的工作是，在维度（指Qubit的数量）足够高，且能让$f(x)=1$的x足够少的时候，$\mathinner{|\Psi\rangle}$和$\mathinner{|a\rangle}$是几乎垂直的，这使得$\mathinner{|\Psi\rangle}$和$\mathinner{|\bar{a}\rangle}$之间的夹角非常小，大约与$\frac{1}{\sqrt{N}}$成正比。</p>
-<p>　　好，接下来我们从$\mathinner{|\Psi\rangle}$开始，先用$U_f$翻转一次，再用$W$翻转一次，再用$U_f$翻转一次，再用$W$翻转一次……注意每次组翻转都会让我们的$\mathinner{|\psi\rangle}$距离$\mathinner{|\bar{a}\rangle}$都增加$2\theta$，在大约$\frac{\pi}{4}\sqrt{N}$次翻转之后，我们的$\mathinner{|\psi\rangle}$向量已经离$\mathinner{|a\rangle}$非常接近了。这个时候再对这个量子态进行观测，它就会有极高的概率坍缩到$\mathinner{|a\rangle}$上（如果$\mathinner{|a\rangle}$是个纯态），或者由更高的概率坍缩到组成$\mathinner{|a\rangle}$的某一个纯态上去（如果$\mathinner{|a\rangle}$是由少数几个可能的$\mathinner{|x\rangle}$叠加而来），终于的终于，我们用了$O(\sqrt{N}$的时间复杂度，找到了一个能让$f(x)=1$的$x$。</p>
-<p>　　<strong>经典计算机做得到吗！</strong><br>　　我们终于可以回去讲为什么是1643了，因为它是两个质数：31和53的乘积。也就是说这个问题其实是一个分解质因数的问题——这其实算便宜经典计算机了，毕竟分解质因数是有不用遍历所有可能性的搜索方法的，如果换一个别的搜索题，经典计算机可能就需要在整个可能性范围内用$O(2^N)$的复杂度搜过来。</p>
-<h2 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h2><ol>
-<li>叠加态并不是数轴上1和0中间的某一个点，是互相垂直的$\mathinner{|1\rangle}$向量和$\mathinner{|0\rangle}$向量的线性组合，且长度必须为1。</li>
-<li>对量子比特进行观测它就会坍缩到$\mathinner{|1\rangle}$或者$\mathinner{|0\rangle}$中的某一个，这个向量离谁更近坍缩到谁的概率就更大。</li>
-<li>对量子比特进行操作需要保证操作的幺正性，这也是后面所有幺蛾子的基础</li>
-<li>量子计算机确实能同时计算一大批输入，只要把输入叠加起来就行了，并没有什么卵用因为输出也都是叠加在一起的。</li>
-<li>量子算法的真正牛逼之处是可以逐渐地让一个量子态坍缩到有效的答案的概率不断增加。而且增加得很快。</li>
-<li>还有其他牛逼的量子算法就不展开讲了。</li>
-</ol>
-
+<p>　　而在量子计算机中我们常听说，一个量子比特（Qubit）可以是1和0的叠加。常识与直觉会让我们以为这种叠加就是0.3, 0.5, 0.8 那样在数轴上从0和1中间选一个点。但事实上不是。在量子比特中，0和1不再是数轴上的两个点，他们实际上是两根<strong>互相垂直</strong>的数轴。为了避免混淆，我们引入新的符号$\mathinner{|0\rangle}$和$\mathinner{|1\rangle}$来描述它们。你可以把$\mathinner{|\cdot\rangle}$理解成一种向量的标志，就像高中时用$\vec{a}$来表示一个「名字叫做a的」向量一样。$\mathinner{|0\rangle}$和$\mathinner{|1\rangle}$分别是名字叫做”0”的向量和名字叫做”1”的向量。<br>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/p/46387.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 

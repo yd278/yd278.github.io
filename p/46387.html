@@ -59,7 +59,7 @@
 <meta property="og:site_name" content="Here I Come">
 <meta property="og:description" content="这是我在知乎上对这个问题的回答，因为辣鸡知乎吃我排版，再加上打开Markdown编辑器时候本来就在博客文件夹里，所以干脆就搬过来了。　　这个答案会很长，我会尽量把对背景知识的需求压缩到高中数学和物理的大纲之内，相应的，也会牺牲一些严谨性和正确性。所以在看完这篇科普之后，万万不可对其中用到的一些比喻进行想当然地扩展与推广，会出大事的（指变成民科）。　　&#x2F;&#x2F;写完才发现尽管是一些很基础的线性代数但是">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-02-22T16:52:36.314Z">
+<meta property="og:updated_time" content="2020-02-22T17:06:06.483Z">
 <meta name="twitter:card" content="summary">
 
 <link rel="canonical" href="http://yoursite.com/p/46387.html">
@@ -251,8 +251,7 @@
       
         <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>　　这是我在知乎上对<a href="https://www.zhihu.com/question/373468198/answer/1032005529" target="_blank" rel="noopener">这个问题</a>的回答，因为辣鸡知乎吃我排版，再加上打开Markdown编辑器时候本来就在博客文件夹里，所以干脆就搬过来了。<br>　　这个答案会很长，我会尽量把对背景知识的需求压缩到高中数学和物理的大纲之内，相应的，也会牺牲一些严谨性和正确性。所以在看完这篇科普之后，万万不可对其中用到的一些比喻进行想当然地扩展与推广，会出大事的（指变成民科）。<br>　　//写完才发现尽管是一些很基础的线性代数但是还是不在高中数学范畴之中……emmmm没关系直接把结论记下来就好。</p>
 <h2 id="比特与量子比特"><a href="#比特与量子比特" class="headerlink" title="比特与量子比特"></a>比特与量子比特</h2><p>　　在经典计算机中，一个机器的「状态」的最小单位是比特（bit），可以是0/1，是VCC/GND，是带磁/消磁，总之是一种确定的，非此即彼的状态，是1就不能再是0，是VCC就不能是GND。</p>
-<p>　　而在量子计算机中我们常听说，一个量子比特（Qubit）可以是1和0的叠加。常识与直觉会让我们以为这种叠加就是0.3, 0.5, 0.8 那样在数轴上从0和1中间选一个点。但事实上不是。在量子比特中，0和1不再是数轴上的两个点，他们实际上是两根<strong>互相垂直</strong>的数轴。为了避免混淆，我们引入新的符号$\mathinner{|0\rangle}$和$\mathinner{|1\rangle}$来描述它们。你可以把$\mathinner{|\cdot\rangle}$理解成一种向量的标志，就像高中时用$\vec{a}$来表示一个「名字叫做a的」向量一样。$\mathinner{|0\rangle}$和$\mathinner{|1\rangle}$分别是名字叫做”0”的向量和名字叫做”1”的向量。</p>
-<p>　　有了这个背景知识之后再去理解「叠加」就比较容易了。比如说一个Qubit $\mathinner{|Q\rangle}=0.6\mathinner{|0\rangle}+0.8\mathinner{|1\rangle}$,那么它就是这样子的一个向量：</p>
+<p>　　而在量子计算机中我们常听说，一个量子比特（Qubit）可以是1和0的叠加。常识与直觉会让我们以为这种叠加就是0.3, 0.5, 0.8 那样在数轴上从0和1中间选一个点。但事实上不是。在量子比特中，0和1不再是数轴上的两个点，他们实际上是两根<strong>互相垂直</strong>的数轴。为了避免混淆，我们引入新的符号$\mathinner{|0\rangle}$和$\mathinner{|1\rangle}$来描述它们。你可以把$\mathinner{|\cdot\rangle}$理解成一种向量的标志，就像高中时用$\vec{a}$来表示一个「名字叫做a的」向量一样。$\mathinner{|0\rangle}$和$\mathinner{|1\rangle}$分别是名字叫做”0”的向量和名字叫做”1”的向量。<br><a id="more"></a><br>　　有了这个背景知识之后再去理解「叠加」就比较容易了。比如说一个Qubit $\mathinner{|Q\rangle}=0.6\mathinner{|0\rangle}+0.8\mathinner{|1\rangle}$,那么它就是这样子的一个向量：</p>
 <p>【放一张图在这里】</p>
 <p>好，到现在，最重要但是又反直觉的「叠加」就解释完了，接下来我们再来补充一些设定，按重要程度排序，越往后的越不用仔细理解（指一时半会也不能科普地讲清楚），看个热闹就行。</p>
 <ul>
