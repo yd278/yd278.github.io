@@ -59,7 +59,7 @@
 <meta property="og:description" content="这几天真的好肝啊……也不知道是因为公开出柜带来的快乐还是因为隔离了压力来源。但总之就是做了好多事情，以至于现在有一种贤者时间般的虚脱感。不码了，不码了，再也不码字了。 今天早上做了个梦，想记下来；昨天早上看完了浅葱喵的那个视频，也想说点啥；这几天还一直在折腾这个博客的程序（我3分钟快速掌握JS可把我牛逼坏了叉会腰.jpg），也得记。 前两者不说倒也没关系，不外乎就是又跟哪个小姑娘谈了个恋爱发生了一">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-02-25T05:27:53.000Z">
-<meta property="article:modified_time" content="2020-02-28T07:29:26.265Z">
+<meta property="article:modified_time" content="2020-02-28T07:34:20.222Z">
 <meta property="article:author" content="Anchor">
 <meta property="article:tag" content="Hexo">
 <meta property="article:tag" content="JavaScript">
@@ -306,8 +306,8 @@
 <p>然后在同目录下的<code>main.styl</code>最后一行加入</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@<span class="keyword">import</span> <span class="string">"_custom/custom"</span></span><br></pre></td></tr></table></figure>
 <p>就完成啦！</p>
-<p>===<br />
-再加一点微小的改动，就不单开一篇博文了</p>
+<hr />
+<p>再加一点微小的改动，就不单开一篇博文了</p>
 <p>css里做的缩进只能应用于一个<code>&lt;p&gt;</code>模块的第一行，平时写文章还好，因为写一段换一个p中间换行空一点问题不大。</p>
 <p>但是你们也知道有的时候这里还会发一些诗格式的东西……诗的话同一段里会有很多行(<code>&lt;br&gt;</code>)，但是只有第一行有缩进就很蠢。把每一行都单独写成一个<code>&lt;p&gt;</code>也很蠢，因为这样子行间距太大了……况且诗也不需要缩进啊。</p>
 <p>这东西的解决方法是在swig里面判断一下有没有<code>post.poem</code>属性，如果为true，那就把全文外面额外套一个<code>&lt;div class=&quot;poem&quot;&gt;</code>。然后在css里让poem不缩进就好了。</p>
