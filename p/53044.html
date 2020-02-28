@@ -59,7 +59,7 @@
 <meta property="og:description" content="这几天真的好肝啊……也不知道是因为公开出柜带来的快乐还是因为隔离了压力来源。但总之就是做了好多事情，以至于现在有一种贤者时间般的虚脱感。不码了，不码了，再也不码字了。 今天早上做了个梦，想记下来；昨天早上看完了浅葱喵的那个视频，也想说点啥；这几天还一直在折腾这个博客的程序（我3分钟快速掌握JS可把我牛逼坏了叉会腰.jpg），也得记。 前两者不说倒也没关系，不外乎就是又跟哪个小姑娘谈了个恋爱发生了一">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-02-25T05:27:53.000Z">
-<meta property="article:modified_time" content="2020-02-28T07:34:20.222Z">
+<meta property="article:modified_time" content="2020-02-28T08:56:48.562Z">
 <meta property="article:author" content="Anchor">
 <meta property="article:tag" content="Hexo">
 <meta property="article:tag" content="JavaScript">
@@ -268,7 +268,7 @@
       
               <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>这几天真的好肝啊……也不知道是因为公开出柜带来的快乐还是因为隔离了压力来源。但总之就是做了好多事情，以至于现在有一种贤者时间般的虚脱感。不码了，不码了，再也不码字了。</p>
 <p>今天早上做了个梦，想记下来；昨天早上看完了浅葱喵的那个视频，也想说点啥；这几天还一直在折腾这个博客的程序（我3分钟快速掌握JS可把我牛逼坏了叉会腰.jpg），也得记。</p>
-<p>前两者不说倒也没关系，不外乎就是又跟哪个小姑娘谈了个恋爱发生了一点跌宕的情节，或者是「我觉得同样是无限循环的时间还是石头门的铃羽线更真实一点」之类的。最后一个不记不行。根据我这么多的软件工程经验，一个项目，如果你不把你做的每一点修改以及你为什么要这么做给记下来，那么日后你再想维护的时候就会面对一坨屎山……虽然现在这东西已经在往屎的方向发展，因为我已经忘了我前天搞了些啥了。</p>
+<p>前两者不说倒也没关系，不外乎就是又跟哪个小姑娘谈了个恋爱发生了一点跌宕的情节，或者是「我觉得同样是无限循环的时间还是石头门的铃羽线更真实一点」之类的。最后一个不记不行。根据我<s>数十年</s>的软件工程经验，一个项目，如果你不把你做的每一点修改以及你为什么要这么做给记下来，那么日后你再想维护的时候就会面对一坨屎山……虽然现在这东西已经在往屎的方向发展，因为我已经忘了我前天搞了些啥了。</p>
 <a id="more"></a>
 <p>顺便，因为没有写额外的插件而是直接在别人的插件上瞎搞所以很很容易更新一下版本然后我的瞎搞就全没了/跟新版本冲突了。所以记下来就更有必要了。</p>
 <h2 id="改进上一篇下一篇的逻辑"><a class="markdownIt-Anchor" href="#改进上一篇下一篇的逻辑"></a> 改进「上一篇」「下一篇」的逻辑</h2>
@@ -299,7 +299,7 @@
 <h2 id="首行缩进以及让角标不缩进"><a class="markdownIt-Anchor" href="#首行缩进以及让角标不缩进"></a> 首行缩进以及让角标不缩进</h2>
 <p>这事是我两分钟前才发现的。从前我打首行缩进都是用两个全角空格实现的，但这不符合markdown的设计哲学：markdown里的东西应该全是内容，首行缩进这种排版的事情应该交给css来实现。</p>
 <p>当然，更重要的一个原因是换了新的渲染器之后渲染不出全角空格来了（</p>
-<p>总之，我又三分钟速成css了。叉会腰.jpg 解决方案如下：</p>
+<p>总之，我又<s>三</s>两分钟速成css了。叉会腰.jpg 解决方案如下：</p>
 <p>在<code>themes\next\source\css</code>里新建一个<code>_custom</code>文件夹，然后新建一个<code>custom.styl</code>文件，输入</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.post-body</span> <span class="selector-tag">p</span> &#123; <span class="attribute">text-indent</span>: <span class="number">2em</span>; &#125;</span><br><span class="line"><span class="selector-class">.post-body</span> <span class="selector-tag">p</span> <span class="selector-tag">sup</span> &#123; <span class="attribute">text-indent</span>: <span class="number">0em</span>; &#125;</span><br></pre></td></tr></table></figure>
 <p>保存</p>
