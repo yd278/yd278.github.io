@@ -360,21 +360,18 @@
     <div class="post-body" itemprop="articleBody">
 
       
-              <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>好，我做完了回上海以来的第一次扫除。</p>
+              <p>好，我做完了回上海以来的第一次扫除。</p>
 <p>对于一个脑子不够用的人来讲，working pipeline越短越好，抹布这种东西，擦完可以直接扔掉再扯一块绝对比每次擦一会就得判断一下是不是脏到要洗了，洗个几次还要清理水槽给人的心力上的消耗小。一次性抹布真快乐，多来点。</p>
 <p>突然想到以前看过一个段子，说有个直男委屈巴巴「我也有在帮你分摊家务啊，你叫我洗碗我就洗碗了嘛，我又不是故意不刷锅的我不知道呀，你叫我刷锅我也去了嘛」</p>
 <p>哥们儿，你这根本不叫分摊家务好嘛，做家务又不是擦擦洗洗，做家务最难的是知道哪里要擦擦洗洗好嘛。这是一个整合了问题定位、方案设计、流程优化、执行操作、评估结果多个步骤的大工程……你就分摊了最简单的一步也好意思叫分摊？</p>
-<p>哪怕是带着数十年软件工程经验的我（靠这个不会能成梗吧），每次发现家里好像没那么桌明几净宽敞舒适了的时候，也要花好久tracing才能找到到底哪里出的问题。更何况定位问题之所在之后——往往是一大堆小问题的集合——还要设计一个高效的维护方案来尽可能低成本地解决这批小问题。房子又不是电脑，感觉卡卡的重启一下就好了。</p>
-<p>不过这也怪我每次给家里加功能的时候也不怎么考虑可维护性，久而久之各个功能之间耦合<sup id="fnref:1"><a href="#fn:1" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="指几个不同的模块互相影响，牵一发动全身，没办法把其中某一个单独挑出来调整或者使用
-">[1]</span></a></sup>极强，几个部件之间经常发生死锁<sup id="fnref:2"><a href="#fn:2" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="比如说，洗杯子要用水龙头，但是水槽里泡着还没洗的电饭锅内胆，那么在把电饭锅洗完之前就不能洗杯子。但是在碗架上的碗晾干之前，就算电饭锅洗了也没地方晾……
-">[2]</span></a></sup>，想喝杯牛奶需要先等洗衣机洗完衣服这种流程你敢信？</p>
-<p>是时候重构<sup id="fnref:3"><a href="#fn:3" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="工程术语，在不改变功能的前提下把项目的结构变得更合理（通常是更容易维护和扩展）">[3]</span></a></sup>了</p>
-<p>写完上面三个脚注我回去给这篇文章的tags里面加上了「讲给外行的编程」……整挺好，反正随便拿两样东西来硬要扯都是扯得出共同点来的，吸引点人对计算机感兴趣也是好事。</p>
-<p>想到了另一件事，昨天本来想写篇深刻的社会学思考，奈何自己接受过的学术训练实在不足，写着写着竟然有一种刚会了微积分去看辛几何的迷惑感……（甲乙丙丁戊己庚几何在哪？）最后一气之下干脆全删了。但总之我本来想说的是我们可以对人宽容一点，对制度苛刻一点。哪怕是人做的不好也可以甩锅给制度。不要把希望寄托在一个人特别牛逼特别伟大上，去允许人犯错，然后用先进优越的制度去兜住人犯的错误避免造成灾难性的后果……</p>
-<p>之所以会想到这个是因为我又拿编程举例子了……我说有种制度叫peer programming，一个人写代码另一个人盯着看，有助于降低那些因为思维定势死活查不出来的错误（以及带来一些其他的好处）。人脑的局限性其实特别强（得过精神类疾病的我疯狂点头），注意力触及不到的地方就是跟瞎了一般触及不到，所以我们会想开发越来越牛逼的IDE来做错误提醒，会搞出小黄鸭调试法<sup id="fnref:4"><a href="#fn:4" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="写好代码后并不自己检查，而是在桌子上摆一个小黄鸭——就洗泡泡浴时候玩的那种——然后假设它一点编程都不懂，然后一行行给它解释你的代码。往往解释着解释着你就反应过来卧槽这边不该这么写的……">[4]</span></a></sup>这种东西，会发明出peer programming这种制度……</p>
-<p>所以你看我在隔离期间闲出屁来去比对围棋AI的时候说的是「这要从一个没及时反应的官僚说起……」。这里的官僚当然指的是官僚系统而不是某个具体的官员，P社那篇文章也说的深得我心，它说作为一个理性利己的官员，在现行的政绩评判制度下最优的做法自然是压消息和瞒报。所以错的还是体制嘛。</p>
-<p>这么说来其实用一次性抹布替代传统抹布也是一种通过改进制度（规章/流程/结构）来增加对人的宽容度的行为，让抗压能力这么差的我也能成功打扫卫生了。真好，首尾呼应，圆回去了。<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style: none; padding-left: 0; margin-left: 40px"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">1.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">指几个不同的模块互相影响，牵一发动全身，没办法把其中某一个单独挑出来调整或者使用<a href="#fnref:1" rev="footnote"> ↩</a></span></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">2.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">比如说，洗杯子要用水龙头，但是水槽里泡着还没洗的电饭锅内胆，那么在把电饭锅洗完之前就不能洗杯子。但是在碗架上的碗晾干之前，就算电饭锅洗了也没地方晾……<a href="#fnref:2" rev="footnote"> ↩</a></span></li><li id="fn:3"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">3.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">工程术语，在不改变功能的前提下把项目的结构变得更合理（通常是更容易维护和扩展）<a href="#fnref:3" rev="footnote"> ↩</a></span></li><li id="fn:4"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">4.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">写好代码后并不自己检查，而是在桌子上摆一个小黄鸭——就洗泡泡浴时候玩的那种——然后假设它一点编程都不懂，然后一行行给它解释你的代码。往往解释着解释着你就反应过来卧槽这边不该这么写的……<a href="#fnref:4" rev="footnote"> ↩</a></span></li></ol></div></div></p>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/p/7476.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
