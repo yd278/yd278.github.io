@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://hereicome.tk/"/>
-  <updated>2020-03-04T14:11:02.748Z</updated>
+  <updated>2020-03-12T12:35:08.724Z</updated>
   <id>http://hereicome.tk/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>虽然不是很牛逼但是我依然叉会腰</title>
+    <link href="http://hereicome.tk/p/32539.html"/>
+    <id>http://hereicome.tk/p/32539.html</id>
+    <published>2020-03-12T09:34:37.000Z</published>
+    <updated>2020-03-12T12:35:08.724Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>简单介绍一下吧，曾经有一群可爱的志愿者们，收集了疫情期间社会上各种各样的女性的报道，整合在石墨文档里，命名为「看见疫情中的女性」，然后毫无意外地，被石墨和谐了。</p><p>所以他们就想着把这个内容放到别的没那么自我阉割的但是又能让墙内网友看到的平台上去，于是他们想到了GitHub……</p><p>也许是因为我正好刚刚学到了相关的技术，也许是被项目发起人的个人魅力所<s>勾</s>吸引，总之，经历了半天的敏捷开发，<a href="https://womeninncov.github.io/" target="_blank" rel="noopener">这个网站</a>在昨天半夜火速上线了。</p><h2 id="需求分析方案策划"><a class="markdownIt-Anchor" href="#需求分析方案策划"></a> 需求分析，方案策划</h2><p>在我接受挑战（？）之前，石墨文档上的东西已经没了，我们手上仅有一份xlsx文件，里面的内容嘛，大致如网页中所见，就是一个目录，与被分别归类好的很多文章链接。</p><a id="more"></a><p>所以我们要做出放这样一个网站：首先，它要能够被墙内的网友看到；其次，它要尽可能地还原原来石墨文档中的内容与格式；最后，它还要尽量让没有技术背景的编辑们能够顺畅地增删更新。在与志愿者团队们以及几位亦有意向帮忙的技术朋友讨论之后，我们最终敲定了「使用Markdown编辑内容」，「使用一个VS Code插件将其打印成html文件」以及「使用GitHub Pages将这个html展现出来」这样三步走的方案。在我们的Git repo中，只留下一个Markdown文件和一个HTML文件。</p><p>之所以采取这样的方案是基于如下考虑：</p><ol><li>因为目前只存链接，所以我们可以不用在GitHub repo里设计用来保存备份文章的存档系统，所有的一切都可以在一个<code>index.html</code>里完成。</li><li>原xlsx文件中的排版跟Markdown的兼容性非常好，甚至一眼就能看出来这东西要是用上了Markdown该怎么写。</li><li>Visual Studio Code以及相关插件的使用体验和学习曲线都非常用户友好，全程不用任何命令行，容错非常高。而且几乎可以覆盖整一个拉取<eq><span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>→</mo></mrow><annotation encoding="application/x-tex">\rightarrow</annotation></semantics></math></span></eq>编辑<eq><span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>→</mo></mrow><annotation encoding="application/x-tex">\rightarrow</annotation></semantics></math></span></eq>生成网页<eq><span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>→</mo></mrow><annotation encoding="application/x-tex">\rightarrow</annotation></semantics></math></span></eq>推送上传的工作流程。</li><li>如果日后还有扩展的需求，比如注册一个独立的域名，或者引入css进行排版，都可以在不影响编辑的工作流程、不额外增加编辑学习成本的情况下进行。</li></ol><h2 id="实操记录"><a class="markdownIt-Anchor" href="#实操记录"></a> 实操记录</h2><p>部署这套方案中最技术相关的行动可能就是帮编辑们安装本地环境了吧……因为此前没接触过GitHub，编辑们的账号都是现场申请的Orz。不过Git这种装过一遍用一辈子<sup id="fnref:1"><a href="#fn:1" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="指电脑的一辈子">[1]</span></a></sup>的事情，容易忘也正常，就在这里记个备忘——毕竟谁知道会不会过两天又新加入一个编辑呢。</p><p>Windows版本的Git从<a href="https://git-scm.com/downloads" target="_blank" rel="noopener">这里</a>下载，下载完安装时一路默认就行，然后注册上自己的用户名和邮箱</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name &quot;Username&quot;</span><br><span class="line">git config --global user.email &quot;email@example.com&quot;</span><br></pre></td></tr></table></figure><p>接下来生成一个ssh key：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &quot;email@example.com&quot;</span><br></pre></td></tr></table></figure><p>一路默认，passphrase留空，（想不留空也行但是用ssh不就是不想输密码吗），最后就能在Users文件夹里找到一对ssh密钥了。将公钥复制到自己GitHub的配置上就可以通过ssh来链接GitHub了。</p><p>下载VS Code，安装<a href="https://marketplace.visualstudio.com/items?itemName=yzhang.markdown-all-in-one" target="_blank" rel="noopener">Markdown All in One</a>插件（顺便一提，这是我交出我人生第一个PR的repo），我们将用到这个插件中的生成ToC功能以及打印到HTML功能。</p><p>接下来把我们的repo给git clone到本地就行了。在VS Code对Git的支持下，我们的编辑可以（几乎）纯鼠标地完成pull、commit和push操作。（merge不太行，所以得让编辑每次开始工作之前都先pull一下）。</p><h2 id="后续扩展"><a class="markdownIt-Anchor" href="#后续扩展"></a> 后续扩展</h2><p>最明显的一个问题是，Markdown渲染出来的网页太简陋了……于是我稍微加入了一点css。</p><p>考虑到引入css这件事情要完全对编辑透明，所以不能把css写在Markdown里……更不能等html被生成出来之后再手动加<code>&lt;style&gt;</code>标签。好在插件支持带css生成html的。只要把写好的css放在同一目录下然后在VSCode里设置一下采用这个css就行。这就不得不提一嘴VSCode的另一个特性了：它的工作区设置是以json格式存在同一目录下的，所以只要我把这个css和配置文件一并加入repo，在编辑那里就会自动应用我的设置。这样，对编辑来讲，多了两个不认识但是反正也不用去碰的文件（夹），姑且也算是透明了。</p><h2 id="额外特性"><a class="markdownIt-Anchor" href="#额外特性"></a> 额外特性</h2><p>哦对了，昨天还炖了锅土豆牛肉，是那种加洋葱和番茄的社会主义风格。倒是挺好吃的，但是总觉得比起八角桂皮茴香那个口味的来，少了点中国特色。<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style: none; padding-left: 0; margin-left: 40px"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">1.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">指电脑的一辈子<a href="#fnref:1" rev="footnote"> ↩</a></span></li></ol></div></div></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;简单介绍一下吧，曾经有一群可爱的志愿者们，收集了疫情期间社会上各种各样的女性的报道，整合在石墨文档里，命名为「看见疫情中的女性」，然后毫无意外地，被石墨和谐了。&lt;/p&gt;
+&lt;p&gt;所以他们就想着把这个内容放到别的没那么自我阉割的但是又能让墙内网友看到的平台上去，于是他们想到了GitHub……&lt;/p&gt;
+&lt;p&gt;也许是因为我正好刚刚学到了相关的技术，也许是被项目发起人的个人魅力所&lt;s&gt;勾&lt;/s&gt;吸引，总之，经历了半天的敏捷开发，&lt;a href=&quot;https://womeninncov.github.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;这个网站&lt;/a&gt;在昨天半夜火速上线了。&lt;/p&gt;
+&lt;h2 id=&quot;需求分析方案策划&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#需求分析方案策划&quot;&gt;&lt;/a&gt; 需求分析，方案策划&lt;/h2&gt;
+&lt;p&gt;在我接受挑战（？）之前，石墨文档上的东西已经没了，我们手上仅有一份xlsx文件，里面的内容嘛，大致如网页中所见，就是一个目录，与被分别归类好的很多文章链接。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="技术" scheme="http://hereicome.tk/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>请务必不要节约一次性抹布</title>
