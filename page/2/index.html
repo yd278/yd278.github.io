@@ -194,6 +194,103 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://hereicome.tk/p/46387.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Anchor">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Here I Come">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/p/46387.html" class="post-title-link" itemprop="url">什么是量子计算机？</a>
+        </h1>
+
+        <div class="post-meta">
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-02-22 23:28:45" itemprop="dateCreated datePublished" datetime="2020-02-22T23:28:45+08:00">2020-02-22</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%A7%91%E5%AD%A6/" itemprop="url" rel="index">
+                    <span itemprop="name">科学</span>
+                  </a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/p/46387.html#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/p/46387.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+              <p>这是我在知乎上对<a href="https://www.zhihu.com/question/373468198/answer/1032005529" target="_blank" rel="noopener">这个问题</a>的回答，因为辣鸡知乎吃我排版，再加上打开Markdown编辑器时候本来就在博客文件夹里，所以干脆就搬过来了。</p>
+<p>这个答案会很长，我会尽量把对背景知识的需求压缩到高中数学和物理的大纲之内，相应的，也会牺牲一些严谨性和正确性。所以在看完这篇科普之后，万万不可对其中用到的一些比喻进行想当然地扩展与推广，会出大事的（指变成民科）。</p>
+<p>//写完才发现尽管是一些很基础的线性代数但是还是不在高中数学范畴之中……emmmm没关系直接把结论记下来就好。</p>
+<h2 id="比特与量子比特"><a class="markdownIt-Anchor" href="#比特与量子比特"></a> 比特与量子比特</h2>
+<p>在经典计算机中，一个机器的「状态」的最小单位是比特（bit），可以是0/1，是VCC/GND，是带磁/消磁，总之是一种确定的，非此即彼的状态，是1就不能再是0，是VCC就不能是GND。</p>
+<p>而在量子计算机中我们常听说，一个量子比特（Qubit）可以是1和0的叠加。常识与直觉会让我们以为这种叠加就是0.3, 0.5, 0.8 那样在数轴上从0和1中间选一个点。但事实上不是。在量子比特中，0和1不再是数轴上的两个点，他们实际上是两根<strong>互相垂直</strong>的数轴。为了避免混淆，我们引入新的符号<eq><span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">∣</mi><mn>0</mn><mo stretchy="false">⟩</mo></mrow><annotation encoding="application/x-tex">\ket{0}</annotation></semantics></math></span></eq>和<eq><span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">∣</mi><mn>1</mn><mo stretchy="false">⟩</mo></mrow><annotation encoding="application/x-tex">\ket{1}</annotation></semantics></math></span></eq>来描述它们。你可以把<eq><span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">∣</mi><mo>⋅</mo><mo stretchy="false">⟩</mo></mrow><annotation encoding="application/x-tex">\ket{\cdot}</annotation></semantics></math></span></eq>理解成一种向量的标志，就像高中时用<eq><span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover accent="true"><mi>a</mi><mo>⃗</mo></mover></mrow><annotation encoding="application/x-tex">\vec{a}</annotation></semantics></math></span></eq>来表示一个「名字叫做a的」向量一样。<eq><span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">∣</mi><mn>0</mn><mo stretchy="false">⟩</mo></mrow><annotation encoding="application/x-tex">\ket{0}</annotation></semantics></math></span></eq>和<eq><span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">∣</mi><mn>1</mn><mo stretchy="false">⟩</mo></mrow><annotation encoding="application/x-tex">\mathinner{|1\rangle}</annotation></semantics></math></span></eq>分别是名字叫做&quot;0&quot;的向量和名字叫做&quot;1&quot;的向量。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/p/46387.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://hereicome.tk/p/49632.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1054,99 +1151,6 @@
   
   
 
-        
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://hereicome.tk/p/49940.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="Anchor">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Here I Come">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/p/49940.html" class="post-title-link" itemprop="url">今天不就事论事，今天剖我自己</a>
-        </h1>
-
-        <div class="post-meta">
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-11-16 22:12:50" itemprop="dateCreated datePublished" datetime="2019-11-16T22:12:50+08:00">2019-11-16</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%94%BF%E6%B2%BB/" itemprop="url" rel="index">
-                    <span itemprop="name">政治</span>
-                  </a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/p/49940.html#comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/p/49940.html" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-              <p>我好像突然明白了为什么me too刚刚掀起大潮时候我会本能的感到反感。</p>
-<p>我本来想找个地方暗咯咯的说其实我觉得李小璐太可以原谅了，因为她会犯下这些错——对她确实犯错了这一点毋庸置疑——是因为这个社会还不够自由。于是我去翻很久以前在知乎上看到的一条想法作为援引。一年来我一直都只记得前几句的大概的意思，并且对他所描述的深以为然。终于今天我又看了一遍最后一句，原地720°螺旋醍醐灌顶恍然大悟，是我之前太天真也太理想化了。我明明懂得所有的道理，但就是没发现最简单的事实。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/p/49940.html#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -1197,7 +1201,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">21</span>
+          <span class="site-state-item-count">22</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1209,7 +1213,7 @@
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
-        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-count">17</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
