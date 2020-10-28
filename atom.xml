@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://hereicome.tk/"/>
-  <updated>2020-09-03T08:33:06.001Z</updated>
+  <updated>2020-10-28T03:55:02.019Z</updated>
   <id>http://hereicome.tk/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>一种生成随机二叉树的方法</title>
+    <link href="http://hereicome.tk/p/8026.html"/>
+    <id>http://hereicome.tk/p/8026.html</id>
+    <published>2020-10-28T03:12:46.000Z</published>
+    <updated>2020-10-28T03:55:02.019Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>生成随机二叉树是怎么回事呢？我们在算法竞赛中，往往会遇到二叉树这样的一种数据结构。二叉树上的算法相信大家都很熟悉，但是这样的一颗二叉树是怎样被生成出来的呢？接下来就让小编带大家了解一下吧。</p><p>对于给定节点数的二叉树的随机生成，其实就是把节点数减去1之后随机的分给左右子树，然后递归就行了。</p><h2 id="-more-"><a class="markdownIt-Anchor" href="#-more-"></a> <a id="more"></a></h2><p>好了不搞了，其实本来要生成二叉树的时候我以为用cyaron就可以了的，但是生成大树的时候慢得要死，看了一眼源码似乎是要先判断能不能左能不能右blahlbah的……总之还不如自己手写一个。</p><p>手写的话算法就是上面说的那个了,这里面有几个要注意的点，比如说什么叫「随机分给左右子树」？直觉上可能会想到二项分布或均匀分布，但是这里控制一下分布的方式的话，也可以构造出一条链/平衡树这样的特殊结构。之前造数据的时候没有吧控制分布的部分写进去，以后可以增加一下这个性质。</p><p>然后是，因为要做成OI格式的输入输出（而不是LeetCode那样直接给一个class），每个结点需要有一个index。而我（个人审美上）不希望一棵树的index看起来是有序的（即长辈的index总是大于子树的index）。对于这个问题首先要排除的是「生成到这个节点的时候抽一个不重复的随机数当作该节点的index」这就太慢了因为后期随机数碰撞的概率非常高。我这边采用的方法是把一个range(n) shuffle一下然后放进queue里，每次生成到节点的时候从queue里取出一个数当index就行。</p><p>至于点权什么的，按出题目的随机生成就行了。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;生成随机二叉树是怎么回事呢？我们在算法竞赛中，往往会遇到二叉树这样的一种数据结构。二叉树上的算法相信大家都很熟悉，但是这样的一颗二叉树是怎样被生成出来的呢？接下来就让小编带大家了解一下吧。&lt;/p&gt;
+&lt;p&gt;对于给定节点数的二叉树的随机生成，其实就是把节点数减去1之后随机的分给左右子树，然后递归就行了。&lt;/p&gt;
+&lt;h2 id=&quot;-more-&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#-more-&quot;&gt;&lt;/a&gt;
+    
+    </summary>
+    
+    
+      <category term="技术" scheme="http://hereicome.tk/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="Python" scheme="http://hereicome.tk/tags/Python/"/>
+    
+      <category term="造数据" scheme="http://hereicome.tk/tags/%E9%80%A0%E6%95%B0%E6%8D%AE/"/>
+    
+      <category term="OI" scheme="http://hereicome.tk/tags/OI/"/>
+    
+  </entry>
   
   <entry>
     <title>重走数学桥</title>
@@ -513,33 +542,6 @@
     
     
       <category term="日记" scheme="http://hereicome.tk/categories/%E6%97%A5%E8%AE%B0/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>一个稍微冷静一点的自我剖析</title>
-    <link href="http://hereicome.tk/p/10027.html"/>
-    <id>http://hereicome.tk/p/10027.html</id>
-    <published>2019-11-17T01:26:15.000Z</published>
-    <updated>2020-02-24T11:45:56.420Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>仔细看看昨天那篇真是毫无结构逻辑也很乱……毕竟是突发奇想并不曾深思熟虑，加之家里来客也就无心再加删改。是我8好，我还是得（剥离某些trigger之后）再重新搞一篇解释这个事情。</p><h2 id="我想要的自由是什么"><a class="markdownIt-Anchor" href="#我想要的自由是什么"></a> 我想要的「自由」是什么</h2><p>就性这个话题而言，我理想中的世界是这样的：</p><ol><li>每个人都有发出性邀请/性暗示/性隐喻的自由，也有明确表达拒绝的自由。其相对应的义务则是真诚且平等地去尊重对方的这两项自由。</li><li>如果一次性行为是全体参与者均在意识清醒且出于性愉悦的目的下同意过的，那么这个性行为就是可以发生的。自愿渡让该权利的除外。</li></ol><a id="more"></a><p>之所以把暗示也包括在邀请里面是因为直接开口说「你好，我想跟你睡觉」是在太没情调……再加之我一直相信一段关系最美好的部分就在于小心翼翼互相试探那一步，是偷偷探过去然后被对方牵住的手，是打一把不够大的伞于是挤在一起的肩，是坐在单车后座上揽着对方的腰的手臂……无论是怎样的性别或主被动或谁先谁后的组合。</p><p>当然你要是说都是成年人了谁还有那功夫骑自行车啊直接一点好嘛那也没问题……毕竟只是把暗示加在里面又不是替换掉了直接邀请。但是出于个人的审美我确实不喜欢直来直去，就当我青春期还没过去吧。</p><h2 id="我之前错在哪儿"><a class="markdownIt-Anchor" href="#我之前错在哪儿"></a> 我之前错在哪儿</h2><p>其实我一直没有，或者说不敢仔细去想所谓的「成年人了直接一点」的流程是怎样的，一来二去看对眼了走上车回我家？</p><p>真糟糕，没有给谁拒绝的机会，甚至「上车回我家」这种对经济能力与社会地位不对等的暗示也让人隐约觉得弱势方的拒绝的自由被压制。这可能就是为什么我从审美上——即直觉或者说本能上——不喜欢这种交往模式。</p><p>不过话又说回来，谁说暧昧与试探的过程中就绝对不存在权力压迫了？</p><p>是我太天真了，象牙塔里呆太久了，甚至默认了每个人在讲黄段子之前都会先考虑考虑听众会不会感到冒犯。哪怕我一直承认权力压迫这种事情会存在，但是在我脑中的先验概率里它就是那么渺小，以至于我在考虑稍微复杂一点的情况时都会遗漏掉它。</p><p>这也就是为什么我刚刚看到MeToo的时候会害怕，害怕从此不再有粉红的青涩的关系，害怕要活在一个没有黄段子的无聊世界里。</p><h2 id="那么我现在怎么看metoo"><a class="markdownIt-Anchor" href="#那么我现在怎么看metoo"></a> 那么我现在怎么看MeToo</h2><p>其实没有很大的变化= =。<a href="/p/15424.html" title="这篇文章">这篇文章</a>里的观点依然有效。当初写的时候我就是剥离了个人感情甚至剥离了具体事例来写的。立场这种东西若是可以自顶向下的overwrite，就不要自底向上的update，因为后者很容易自相矛盾。</p><p>对于每一个喊出me too的姑娘，我依然愿意，并且觉得大家都应该给与各种方面的援助，包括法律上的，身心健康上的，社会上的等等。哪怕她做错了什么——找错了组织提错了罪名甚至误解了事实真相——我们也要帮她做正确的事情，给她应得的公平与正义。</p><p>但是对于把那些姑娘们组织起来的人，那些想要利用这一个个me too事件对这个社会做出些结构性的改变的人。我们依然要警惕他或者她或者他们是否别有用心或者混入了别有用心之人，依然要要求他们必须是伟大且极少犯错误的政治家与革命家否则大事不会成功，只会给弱者更多更深的伤害。毕竟要让世界变好何其之难，要让世界变糟糕却像熵增一样容易。</p><p>那么到底什么变了呢，可能就是我更讨厌那些自以为自己有些权力就可以随意剥夺他人自由的加害者了吧。以前没有意识到他们存在，现在想想那些嘴脸，可真够猥琐的。</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;仔细看看昨天那篇真是毫无结构逻辑也很乱……毕竟是突发奇想并不曾深思熟虑，加之家里来客也就无心再加删改。是我8好，我还是得（剥离某些trigger之后）再重新搞一篇解释这个事情。&lt;/p&gt;
-&lt;h2 id=&quot;我想要的自由是什么&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#我想要的自由是什么&quot;&gt;&lt;/a&gt; 我想要的「自由」是什么&lt;/h2&gt;
-&lt;p&gt;就性这个话题而言，我理想中的世界是这样的：&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;每个人都有发出性邀请/性暗示/性隐喻的自由，也有明确表达拒绝的自由。其相对应的义务则是真诚且平等地去尊重对方的这两项自由。&lt;/li&gt;
-&lt;li&gt;如果一次性行为是全体参与者均在意识清醒且出于性愉悦的目的下同意过的，那么这个性行为就是可以发生的。自愿渡让该权利的除外。&lt;/li&gt;
-&lt;/ol&gt;
-    
-    </summary>
-    
-    
-      <category term="政治" scheme="http://hereicome.tk/categories/%E6%94%BF%E6%B2%BB/"/>
     
     
   </entry>
