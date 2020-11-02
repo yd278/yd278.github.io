@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://hereicome.tk/"/>
-  <updated>2020-10-28T03:55:02.019Z</updated>
+  <updated>2020-10-28T03:55:07.576Z</updated>
   <id>http://hereicome.tk/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://hereicome.tk/p/8026.html"/>
     <id>http://hereicome.tk/p/8026.html</id>
     <published>2020-10-28T03:12:46.000Z</published>
-    <updated>2020-10-28T03:55:02.019Z</updated>
+    <updated>2020-10-28T03:55:07.576Z</updated>
     
     <content type="html"><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>生成随机二叉树是怎么回事呢？我们在算法竞赛中，往往会遇到二叉树这样的一种数据结构。二叉树上的算法相信大家都很熟悉，但是这样的一颗二叉树是怎样被生成出来的呢？接下来就让小编带大家了解一下吧。</p><p>对于给定节点数的二叉树的随机生成，其实就是把节点数减去1之后随机的分给左右子树，然后递归就行了。</p><h2 id="-more-"><a class="markdownIt-Anchor" href="#-more-"></a> <a id="more"></a></h2><p>好了不搞了，其实本来要生成二叉树的时候我以为用cyaron就可以了的，但是生成大树的时候慢得要死，看了一眼源码似乎是要先判断能不能左能不能右blahlbah的……总之还不如自己手写一个。</p><p>手写的话算法就是上面说的那个了,这里面有几个要注意的点，比如说什么叫「随机分给左右子树」？直觉上可能会想到二项分布或均匀分布，但是这里控制一下分布的方式的话，也可以构造出一条链/平衡树这样的特殊结构。之前造数据的时候没有吧控制分布的部分写进去，以后可以增加一下这个性质。</p><p>然后是，因为要做成OI格式的输入输出（而不是LeetCode那样直接给一个class），每个结点需要有一个index。而我（个人审美上）不希望一棵树的index看起来是有序的（即长辈的index总是大于子树的index）。对于这个问题首先要排除的是「生成到这个节点的时候抽一个不重复的随机数当作该节点的index」这就太慢了因为后期随机数碰撞的概率非常高。我这边采用的方法是把一个range(n) shuffle一下然后放进queue里，每次生成到节点的时候从queue里取出一个数当index就行。</p><p>至于点权什么的，按出题目的随机生成就行了。</p>]]></content>
     
