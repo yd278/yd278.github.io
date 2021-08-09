@@ -296,6 +296,97 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://hereicome.tk/p/56052.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Anchor">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Here I Come">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/p/56052.html" class="post-title-link" itemprop="url">家用局域网网内串流直播方案</a>
+        </h1>
+
+        <div class="post-meta">
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-08-09 14:38:00" itemprop="dateCreated datePublished" datetime="2021-08-09T14:38:00+08:00">2021-08-09</time>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/p/56052.html#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/p/56052.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+              <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>好久不见但是不想说些什么除草的套话或者对忘记了这个博客感到抱歉之类的，总之我们快速地进入正题。</p>
+<h2 id="电信宽带"><a class="markdownIt-Anchor" href="#电信宽带"></a> 电信宽带</h2>
+<blockquote>
+<p>天下苦东方有线久矣</p>
+</blockquote>
+<p>6月的时候我终于下定决心要把家里的宽带换了，一来是因为二房东离奇失踪所以我终于可以直接跟大房东讨论家里的infrastructure（但是话又说回来宽带费本来就是租客自己交的）；二来因为……东方有线这种次级运营商实在是提供不了什么正常的网络服务：给不了公网ip也就算了，毕竟「全国ip紧缺」，不支持ipv6也能忍，毕竟「<a href="https://kab.sww.sh.gov.cn/xwzx/001001/20200702/e8931577-9a01-46fa-a8a9-d76d71ae1db3.html" target="_blank" rel="noopener">是新技术</a>」，但是你给我套<s>七八层</s>NAT搞得p2p打不通这点……虽说技术上比前两点更好理解，但是这个实实在在影响我使用体验了诶！人在北京，用蒲公英组的虚拟局域网ssh到家里的台式机做X寻夏令营要用的slides，编译个pdf要等五六秒才能看到预览。打开蒲公英一看，赫然「转发」两个大字。</p>
+<p>忍不了，一回上海我就打电话叫电信工程师上门。我对网速倒也没啥要求，就整了个电信的最便宜的300M，整完之后我彻底震惊了：ipv6自动拨通，switch上的NAT类型从F变成了B，steam给了我一个之前从没见过的下载速度数字……这就是中国一线城市正常的运营商能提供的上网体验吗？倒不是说300M有多快，就是比起以前………我立马翻出了之前二房东办的东方有线宽带套餐，好家伙，50M。</p>
+<h2 id="zerotier"><a class="markdownIt-Anchor" href="#zerotier"></a> Zerotier</h2>
+<p>虽说这样一来不管是手机热点还是星巴克wifi都能在蒲公英下建立和家里电脑的p2p连接了，但是却意外发现蒲公英它只支持三个设备（去年还不这样呢！）</p>
+<p>考虑到现在打通p2p的成功率极高，基本上不用担心转发不转发的问题，于是干脆就把虚拟组网方案换成了Zerotier，设备限制一下子变成了100台——What’s up,先是从50M升级成300M，再从3台升级到100台，还有多少事情是明明可以很爽却因为信息不对称凑活着忍了很久的？</p>
+<p>总之这样一来家里的台式机，手机ipad笔记本以及未来可能会再加入的MacBook，终于可以一直保持互联了。甚至还可以包括——白老师的笔记本。</p>
+<h2 id="obs和livego"><a class="markdownIt-Anchor" href="#obs和livego"></a> OBS和LiveGo</h2>
+<p>白老师曾经砸锅卖铁送了我一个《只狼》并且各种明示暗示我打给她看（其心可诛！）。而Steam也确实有把正在玩的游戏直播给好友的功能，于是我们尝试了一下——</p>
+<p>怎么讲，就，只能说，也许steam这个功能的目标用户也许还在开发中……总之推流码率极低，画质极其模糊，所以「看我受苦」这种奇怪的play就暂且搁置了下来。但是我一直寻思着：推流这种东西真的一定需要一个直播服务提供商吗？就不能局域网内/p2p的自己推自己接？毕竟……OBS里那个推流服务器看起来好像填个ip地址上去也可以的样子呢？</p>
+<p>遂在GitHub上找可以跑在自己电脑上的推流服务端，也没做啥比较反正找到第一个就是LiveGo，那就它了吧。谁能想到这玩意的教程，或者说文档，或者说随便什么名字，写得异常简略，导致完全没看懂。几经折腾终于发现：原来推流文件名（房间号）是可以随意定的啊？！</p>
+<p>简而言之就是，启动了livego服务之后，要从<code>http://localhost:8090/control/get?room=movie</code>获得一个<code>movie</code>的密钥。这里的<code>movie</code>可以随意改成你喜欢的名字，猜测大概是对那个字符串和一些别的什么盐揉在一起做了个加密。</p>
+<p>接下来在OBS里把推流服务器改成<code>rtmp://localhost:1935/live/</code> 端口我就保持默认了，要是冲突了也不是不能改。串流密钥改成上面得到的那一串。</p>
+<p>接下来同一局域网内的电脑就可以用任何可以看流的软件（VLC啊，potPlayer啊等等等等），打开<code>rtmp://{我的ip}:1935/live/movie</code>看直播了</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://hereicome.tk/p/8026.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1088,102 +1179,6 @@
   
   
 
-        
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://hereicome.tk/p/32539.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="Anchor">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Here I Come">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/p/32539.html" class="post-title-link" itemprop="url">虽然不是很牛逼但是我依然叉会腰</a>
-        </h1>
-
-        <div class="post-meta">
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-03-12 17:34:37" itemprop="dateCreated datePublished" datetime="2020-03-12T17:34:37+08:00">2020-03-12</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index">
-                    <span itemprop="name">技术</span>
-                  </a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/p/32539.html#comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/p/32539.html" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-              <p>简单介绍一下吧，曾经有一群可爱的志愿者们，收集了疫情期间社会上各种各样的女性的报道，整合在石墨文档里，命名为「看见疫情中的女性」，然后毫无意外地，被石墨和谐了。</p>
-<p>所以他们就想着把这个内容放到别的没那么自我阉割的但是又能让墙内网友看到的平台上去，于是他们想到了GitHub……</p>
-<p>也许是因为我正好刚刚学到了相关的技术，也许是被项目发起人的个人魅力所<s>勾</s>吸引，总之，经历了半天的敏捷开发，<a href="https://womeninncov.github.io/" target="_blank" rel="noopener">这个网站</a>在昨天半夜火速上线了。</p>
-<h2 id="需求分析方案策划"><a class="markdownIt-Anchor" href="#需求分析方案策划"></a> 需求分析，方案策划</h2>
-<p>在我接受挑战（？）之前，石墨文档上的东西已经没了，我们手上仅有一份xlsx文件，里面的内容嘛，大致如网页中所见，就是一个目录，与被分别归类好的很多文章链接。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/p/32539.html#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -1234,7 +1229,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">24</span>
+          <span class="site-state-item-count">25</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1276,7 +1271,7 @@
 <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2020</span>
+  <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
